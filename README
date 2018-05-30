@@ -1,0 +1,18 @@
+create table PROJECT (
+   project_id BIGINT NOT NULL AUTO_INCREMENT,
+   name VARCHAR(30) NOT NULL,
+   description  VARCHAR(256) NOT NULL,
+   start_date VARCHAR(10) NOT NULL,
+   due_date VARCHAR(10) NOT NULL,
+   PRIMARY KEY (project_id)
+);
+ 
+create table EMPLOYEE2 (
+   emp_id BIGINT NOT NULL AUTO_INCREMENT,
+   project_id BIGINT NOT NULL,
+   mid VARCHAR(8) NOT NULL,
+   first_name VARCHAR(30) NOT NULL,
+   last_name  VARCHAR(30) NOT NULL,
+   PRIMARY KEY (emp_id),
+   CONSTRAINT employee_project FOREIGN KEY (project_id) REFERENCES PROJECT (project_id) ON UPDATE CASCADE ON DELETE CASCADE
+);
